@@ -1,10 +1,11 @@
-import mongoose, { connect } from "mongoose";
-import connectDB from "./database/database";
+import connectDB from "../config/database.js";
 import dotenv from "dotenv";
 
 dotenv.config({
     path: "./env",
 });
+
+connectDB();
 
 /*import express from "express";
 const app = express();
