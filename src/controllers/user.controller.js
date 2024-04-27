@@ -19,7 +19,7 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Invalid email format");
     }
 
-    const existingUser = User.findOne({ $or: [{ username }, { email }] });
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
 
     if (existingUser) {
         throw new ApiError(409, "User with Email or User Name already exists.");
